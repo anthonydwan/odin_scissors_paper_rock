@@ -38,8 +38,12 @@ function playCore(playerSelection, computerSelection) {
     if (checkDraw(playerSelection, computerSelection)) {
         return "draw"
     } else if (checkWin(playerSelection, computerSelection)) {
+        currWinScore ++
+        showScore(currWinScore, currLoseScore)
         return "win"
     } else {
+        currLoseScore ++
+        showScore(currWinScore, currLoseScore)
         return "lose"
     }
 }
@@ -68,7 +72,6 @@ function game(playerSelection) {
     console.log(scoreCount)
 }
 
-
 //print result 
 function resultPrint(result){
     const container = document.querySelector("#result")
@@ -85,5 +88,27 @@ buttons.forEach(button => {
     }
     );
 });
+
+//keeping current score
+let currWinScore = 0
+let currLoseScore = 0
+
+//change the score
+function showScore(currWinScore, currLoseScore){
+    const winScore = document.querySelector("#winScore")
+    const loseScore = document.querySelector("#loseScore")
+    winScore.textContent = currWinScore
+    loseScore.textContent = currLoseScore
+}
+
+// set up the score at 0, 0 
+showScore(currWinScore, currLoseScore)
+
+//reset the score
+function scoreReset(){
+    var currWinScore = 0
+    var currLoseScore = 0
+    showScore(currWinScore, currLoseScore)
+}
 
 
