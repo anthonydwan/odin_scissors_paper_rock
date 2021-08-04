@@ -5,85 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
     <title>Scis-Pa-Ro</title>
 </head>
 
 <body>
-    <script>
-        // generate computer's mobve (S/P/R)
-        function computerPlay() {
-            let decider = Math.floor(Math.random() * 3)
-            if (decider === 0) {
-                return "Rock"
-            } else if (decider === 1) {
-                return "Scissors"
-            } else {
-                return "Paper"
-            }
-        }
-
-        // check if game is a draw
-        function drawCombinations(playerSelection, computerSelection) {
-            if (playerSelection === computerSelection) {
-                return true
-            }
-        }
-
-        // check if game is a player-win
-        function winCombinations(playerSelection, computerSelection) {
-            if ((playerSelection === "Rock" && computerSelection === "Scissors") || 
-            (playerSelection === "Scissors" && computerSelection === "Paper") || 
-            (playerSelection === "Paper" && computerSelection === "Rock")) {
-                return true
-            }
-        }
-
-        // processing the player's input string
-        function processInputPrompt(playerSelection){
-            playerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase()
-            return playerSelection
-        }
-
-        // compute core mechanics of S/P/R game
-        function playCore(playerSelection, computerSelection){
-            playerSelection = processInputPrompt(playerSelection)
-            if (drawCombinations(playerSelection, computerSelection)){
-                return "draw"
-            } else if (winCombinations(playerSelection, computerSelection)){
-                return "win"
-            } else {
-                return "lose"
-            }
-        }
-
-        // play a round with output strings in the end
-        function playRound(playerSelection, computerSelection) {
-            playerSelection = processInputPrompt(playerSelection)
-            const result = playCore(playerSelection, computerSelection)
-            if (result === "draw"){
-                return "This is a draw."
-            } else if (result === "win"){
-                return `You win! ${playerSelection} beats ${computerSelection}`
-            } else {
-                return `You lose! ${computerSelection} beats ${playerSelection}`
-            }
-        }
-
-        // game loops for 5 times and saves the score
-        function game(playerSelection){
-            let scoreCount = {"win": 0, "draw": 0, "lose": 0}
-            for(let i = 0; i < 5; i++){
-                const computerSelection = computerPlay();
-                const result = playCore(playerSelection, computerSelection)
-                scoreCount[result]++
-            }
-            console.log(scoreCount)
-        }
-
-        const playerSelection = prompt();
-        console.log(game(playerSelection))
-
-    </script>
+    <button class ="buttons" id="Rock">Rock</button>
+    <button class ="buttons" id="Scissors">Scissors</button>
+    <button class ="buttons" id="Paper">Paper</button>
+    <div>
+        <p id="result">Are you ready?</p>
+    </div>
+    <div>
+        Current Score: <span id="winScore">0</span> to <span id="loseScore">0</span>
+    </div>
+    
 </body>
 
 </html>
