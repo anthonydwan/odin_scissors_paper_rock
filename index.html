@@ -10,7 +10,7 @@
 
 <body>
     <script>
-
+        // generate computer's mobve (S/P/R)
         function computerPlay() {
             let decider = Math.floor(Math.random() * 3)
             if (decider === 0) {
@@ -22,12 +22,14 @@
             }
         }
 
+        // check if game is a draw
         function drawCombinations(playerSelection, computerSelection) {
             if (playerSelection === computerSelection) {
                 return true
             }
         }
 
+        // check if game is a player-win
         function winCombinations(playerSelection, computerSelection) {
             if ((playerSelection === "Rock" && computerSelection === "Scissors") || 
             (playerSelection === "Scissors" && computerSelection === "Paper") || 
@@ -36,11 +38,13 @@
             }
         }
 
+        // processing the player's input string
         function processInputPrompt(playerSelection){
             playerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase()
             return playerSelection
         }
 
+        // compute core mechanics of S/P/R game
         function playCore(playerSelection, computerSelection){
             playerSelection = processInputPrompt(playerSelection)
             if (drawCombinations(playerSelection, computerSelection)){
@@ -52,6 +56,7 @@
             }
         }
 
+        // play a round with output strings in the end
         function playRound(playerSelection, computerSelection) {
             playerSelection = processInputPrompt(playerSelection)
             const result = playCore(playerSelection, computerSelection)
@@ -64,6 +69,7 @@
             }
         }
 
+        // game loops for 5 times and saves the score
         function game(playerSelection){
             let scoreCount = {"win": 0, "draw": 0, "lose": 0}
             for(let i = 0; i < 5; i++){
