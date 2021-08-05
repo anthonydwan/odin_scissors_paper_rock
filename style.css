@@ -1,55 +1,111 @@
 *{
     margin: 0;
     padding: 0;
-    background-color: rgb(42, 42, 85);
     font-family: 'Roboto', sans-serif;
+    background-color: rgb(44, 42, 63);
+    font-size: 25px;
+    text-align: center;
 }
 
-button{
+h1{
+    font-size: 80px;
+    margin: 20px;
+}
+
+@keyframes winningBorderFlash{
+    0% {border: 10px solid black;}
+    50% {border: 10px solid green;}
+    100% {border: 10px solid black;}
+}
+
+@keyframes winningScoreFlash{
+    0% {color: black;}
+    50% {color:  green;}
+    100% {color:  black;}
+}
+
+.winningBorder{
+    animation: winningBorderFlash 1s infinite;
+    animation-timing-function: linear;
+}
+
+.winningScore{
+    animation: winningScoreFlash 1s infinite;
+    animation-timing-function: linear;
+}
+
+#rps{
+    font-size: 80px;
+    color:rgb(63, 57, 119);
+}
+
+.score{
+    font-size: 75px;
+    font-weight: 1000;
+    transition: all 0.2s ease-in-out;
+}
+
+.winScore{
+    color: green;
+}
+
+.gameButtons{
     outline: none;
     border: none;
-    width: 280px;
-    height: 280px;
+    width: 300px;
+    height: 300px;
 }
 
+.buttonsImg:hover{
+    margin-top: -5px;
+    margin-bottom: 5px;
+    transition: all 0.1s ease-in-out;
+}
+
+.restartButton{
+    font-size: 30px;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 0.25em;
+    border: 2px solid black;
+}
+
+.restartButton:hover{
+    box-shadow: 0px 3px 4px black;
+    margin-top: 18px;
+    margin-bottom: 22px;
+    transition: all 0.1s ease-in-out;
+}
 
 img{
-    width: 280px;
+    width: 240px;
     border-radius: 50%;
+}
+
+.buttonsImg{
+    width: 230px;
 }
 
 .chosenWeapon{
     display: inline-block;
     text-align: center;
     justify-content: center;
-    border: 5px solid black;
-    height: 340px;
-    width: 340px;
+    border: 10px solid black;
+    height: 360px;
+    width: 360px;
     border-radius: 0.5em;
     transition: all 0.3s ease;
 }
 
-.rotate{
-    transform: rotateZ(110deg);
-}
-
-.rotateflip{
-    transform: rotateZ(70deg) scaleY(-1);
-}
-
 .winner{
-    border: 5px solid green;
+    border: 10px solid green;
 }
 
 .draw{
-    border: 5px solid orange;
+    border: 10px solid orange;
 }
 
-.imgVisibility{
-    visibility: hidden;
-    pointer-events: none;
+.flip{
+    transform: scaleX(-1);
 }
 
-.imgVisibility .active{
-    visibility: visible;
-}

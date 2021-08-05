@@ -15,40 +15,41 @@
 
 <body>
     <main id="gamebox">
-        <h1>The Battle of <span>RPS</span></h1>
+        <h1><span id="rps">R-P-S</span> Battle</h1>
         <div>
-            <div>
-                Current Score<br>
-                Player: <span id="winScore"></span>
-                Computer: <span id="loseScore"></span>
-            </div>
+
             <div class="chosenWeapon" id="playerChoiceBox">
                 PLAYER
-                <div>
-                    <img id="playerChoiceImg" src="">
-                </div>
+                <div class="score" id="playerScore"></div>
+                <img id="playerChoiceImg" src="">
             </div>
             <div class="chosenWeapon" id="computerChoiceBox">
-                Computer
-                <div>
-                    <img id="computerChoiceImg" src="">
-                </div>
+                COMPUTER
+                <div class="score" id="computerScore"></div>
+                <img id="computerChoiceImg" src="">
             </div>
-            <p>Choose your weapon</p>
-            <button class="buttons" id="Rock">
-                <img src="images/Rock.png" alt="rock button">
-            </button>
-            <button class="buttons" id="Scissors">
-                <img src="images/Scissors.png" alt="rock button">
-            </button>
-            <button class="buttons" id="Paper">
-                <img src="images/Paper.png" alt="rock button">
-            </button>
-        </div>
-        <div>
-            <p id="roundResult">Are you ready?</p>
-            <p id="gameResult"></p>
-        </div>
+            <div id=controlPanel>
+                <p>Choose your weapon</p>
+                <button class="gameButtons" id="Rock">
+                    <img class="buttonsImg flip" src="images/Rock.png" alt="rock button">
+                    <div>Rock</div>
+                </button>
+                <button class="gameButtons" id="Paper">
+                    <img class="buttonsImg flip" src="images/Paper.png" alt="paper button">
+                    <div>Paper</div>
+                </button>
+                <button class="gameButtons" id="Scissors">
+                    <img class="buttonsImg flip" src="images/Scissors.png" alt="scissors button">
+                    <div>Scissors</div>
+                </button>
+
+            </div>
+
+            <div>
+                <p id="roundResult">Are you ready?</p>
+                <p id="gameResult"></p>
+                <div id="restart"></div>
+            </div>
 
     </main>
 </body>
