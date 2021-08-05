@@ -6,20 +6,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Scis-Pa-Ro</title>
 </head>
 
 <body>
-    <button class ="buttons" id="Rock">Rock</button>
-    <button class ="buttons" id="Scissors">Scissors</button>
-    <button class ="buttons" id="Paper">Paper</button>
-    <div>
-        <p id="result">Are you ready?</p>
-    </div>
-    <div>
-        Current Score: <span id="winScore"></span> to <span id="loseScore"></span>
-    </div>
-    
+    <main id="gamebox">
+        <h1>The Battle of <span>RPS</span></h1>
+        <div>
+            <div>
+                Current Score<br>
+                Player: <span id="winScore"></span>
+                Computer: <span id="loseScore"></span>
+            </div>
+            <div class="chosenWeapon" id="playerChoiceBox">
+                PLAYER
+                <div>
+                    <img id="playerChoiceImg" src="">
+                </div>
+            </div>
+            <div class="chosenWeapon" id="computerChoiceBox">
+                Computer
+                <div>
+                    <img id="computerChoiceImg" src="">
+                </div>
+            </div>
+            <p>Choose your weapon</p>
+            <button class="buttons" id="Rock">
+                <img src="images/Rock.png" alt="rock button">
+            </button>
+            <button class="buttons" id="Scissors">
+                <img src="images/Scissors.png" alt="rock button">
+            </button>
+            <button class="buttons" id="Paper">
+                <img src="images/Paper.png" alt="rock button">
+            </button>
+        </div>
+        <div>
+            <p id="roundResult">Are you ready?</p>
+            <p id="gameResult"></p>
+        </div>
+
+    </main>
 </body>
 
 </html>

@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(42, 42, 85);
+    font-family: 'Roboto', sans-serif;
+}
+
+button{
+    outline: none;
+    border: none;
+    width: 280px;
+    height: 280px;
+}
+
+
+img{
+    width: 280px;
+    border-radius: 50%;
+}
+
+.chosenWeapon{
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+    border: 5px solid black;
+    height: 340px;
+    width: 340px;
+    border-radius: 0.5em;
+    transition: all 0.3s ease;
+}
+
+.rotate{
+    transform: rotateZ(110deg);
+}
+
+.rotateflip{
+    transform: rotateZ(70deg) scaleY(-1);
+}
+
+.winner{
+    border: 5px solid green;
+}
+
+.draw{
+    border: 5px solid orange;
+}
+
+.imgVisibility{
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.imgVisibility .active{
+    visibility: visible;
+}
