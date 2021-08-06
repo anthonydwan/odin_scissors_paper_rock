@@ -233,3 +233,5 @@ function restartGame() {
     showScore(currWinScore, currLoseScore)
 };
 
+
+

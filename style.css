@@ -9,8 +9,8 @@
 }
 
 h1{
+    display: inline;
     font-size: 80px;
-    margin: 20px;
 }
 
 @keyframes winningBorderFlash{
@@ -76,11 +76,12 @@ img{
     display: block;
     font-size: 30px;
     padding: 10px;
-    margin: 10px auto;
+    margin: 15px auto;
     height: 80px;
     width: 200px;
     border-radius: 0.25em;
     border: 2px solid black;
+    cursor: pointer;
 }
 
 .againText{
@@ -89,7 +90,7 @@ img{
 
 .restartButton:hover{
     box-shadow: 0px 3px 4px black;
-    margin-top: 5px;
+    margin-top: -5px;
     margin-bottom: 15px;
     transition: all 0.2s ease-in-out;
 }
@@ -153,4 +154,26 @@ img{
 
 #computerChoiceCaption, #playerChoiceCaption{
     margin-bottom: 15px;
+}
+
+.heading{
+    margin: 10px;
+}
+
+.heading a{
+    height: 30px;
+    width: 30px;
+}
+
+.heading a img{
+    height: 30px;
+    top: 15px;
+    position: absolute;
+    margin-top: 3px;
+    transition: all 0.2s ease-in-out;
+}
+
+.heading a img:hover{
+    margin-top: 0px;
+    margin-bottom: 3px;
 }
