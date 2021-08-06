@@ -2,8 +2,9 @@
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: rgb(44, 42, 63);
+    background-color: rgb(87, 77, 148);
     font-size: 25px;
+    font-weight: 600;
     text-align: center;
 }
 
@@ -36,7 +37,7 @@ h1{
 
 #rps{
     font-size: 80px;
-    color:rgb(63, 57, 119);
+    color:rgb(39, 27, 146);
 }
 
 .score{
@@ -52,8 +53,12 @@ h1{
 .gameButtons{
     outline: none;
     border: none;
-    width: 300px;
-    height: 300px;
+    max-width: 260px;
+    max-height: 260px;
+}
+
+.buttonsImg{
+    max-width: 200px;
 }
 
 .buttonsImg:hover{
@@ -62,39 +67,55 @@ h1{
     transition: all 0.1s ease-in-out;
 }
 
+img{
+    max-width: 200px;
+    border-radius: 50%;
+}
+
 .restartButton{
+    display: block;
     font-size: 30px;
     padding: 10px;
-    margin: 20px;
+    margin: 10px auto;
+    height: 80px;
+    width: 200px;
     border-radius: 0.25em;
     border: 2px solid black;
 }
 
+.againText{
+    display: none;
+}
+
 .restartButton:hover{
     box-shadow: 0px 3px 4px black;
-    margin-top: 18px;
-    margin-bottom: 22px;
-    transition: all 0.1s ease-in-out;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    transition: all 0.2s ease-in-out;
 }
 
-img{
-    width: 240px;
-    border-radius: 50%;
+.restartButton:hover .resultText{
+    display: none;
 }
 
-.buttonsImg{
-    width: 230px;
+.restartButton:hover .againText{
+    display: block;
 }
 
+/* border display */
 .chosenWeapon{
     display: inline-block;
     text-align: center;
     justify-content: center;
     border: 10px solid black;
-    height: 360px;
-    width: 360px;
+    height: 380px;
+    width: 380px;
     border-radius: 0.5em;
     transition: all 0.3s ease;
+}
+
+.chosenWeapon p{
+    margin-top: 15px;
 }
 
 .winner{
@@ -109,3 +130,27 @@ img{
     transform: scaleX(-1);
 }
 
+#controlPanel{
+    margin: 15px;
+    justify-items: center;
+}
+
+#controlPanel p{
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+#roundResult{
+    margin: 30px auto;
+    padding: 10px;
+    width: 650px;
+    justify-self: center;
+    border-top: 3px dotted rgb(48, 48, 56);
+    border-bottom: 3px dotted rgb(48, 48, 56);
+}
+
+#computerChoiceCaption, #playerChoiceCaption{
+    margin-bottom: 15px;
+}

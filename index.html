@@ -19,17 +19,19 @@
         <div>
 
             <div class="chosenWeapon" id="playerChoiceBox">
-                PLAYER
+                <p>PLAYER</p>
                 <div class="score" id="playerScore"></div>
                 <img id="playerChoiceImg" src="">
+                <div id="playerChoiceCaption"></div>
             </div>
             <div class="chosenWeapon" id="computerChoiceBox">
-                COMPUTER
+                <p>COMPUTER</p>
                 <div class="score" id="computerScore"></div>
                 <img id="computerChoiceImg" src="">
+                <div id="computerChoiceCaption"></div>
             </div>
             <div id=controlPanel>
-                <p>Choose your weapon</p>
+                <p>- - Choose your move - -</p>
                 <button class="gameButtons" id="Rock">
                     <img class="buttonsImg flip" src="images/Rock.png" alt="rock button">
                     <div>Rock</div>
@@ -42,12 +44,9 @@
                     <img class="buttonsImg flip" src="images/Scissors.png" alt="scissors button">
                     <div>Scissors</div>
                 </button>
-
             </div>
-
-            <div>
+            <div id="bottomPanel">
                 <p id="roundResult">Are you ready?</p>
-                <p id="gameResult"></p>
                 <div id="restart"></div>
             </div>
 

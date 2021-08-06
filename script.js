@@ -1,6 +1,8 @@
 // pulling variables (for clarity)
-const currPlayerWeapon = document.querySelector("#playerChoiceImg");
-const currComputerWeapon = document.querySelector("#computerChoiceImg");
+const playerChoiceImg = document.querySelector("#playerChoiceImg");
+const computerChoiceImg = document.querySelector("#computerChoiceImg");
+const playerChoiceCaption = document.querySelector("#playerChoiceCaption");
+const computerChoiceCaption = document.querySelector("#computerChoiceCaption");
 const playerScore = document.querySelector("#playerScore")
 const computerScore = document.querySelector("#computerScore")
 const restart = document.querySelector("#restart")
@@ -8,12 +10,10 @@ const buttons = document.querySelectorAll('.gameButtons');
 const playerBorder = document.querySelector("#playerChoiceBox");
 const computerBorder = document.querySelector("#computerChoiceBox");
 
-//variable creation
-const restartButton = document.createElement("button")
-
 //keeping current score
 let currWinScore = 0
 let currLoseScore = 0
+let roundNum = 1
 
 // generate computer's mobve (S/P/R)
 function computerPlay() {
@@ -71,36 +71,47 @@ function playCore(playerSelection, computerSelection) {
 function getRoundEnding(result, playerSelection, computerSelection) {
     switch (result) {
         case "draw":
-            return "This is a draw.";
+            return `Round ${roundNum}: This is a draw.`;
         case "win":
-            return `Player wins! ${playerSelection} beats ${computerSelection}`;
+            return `Round ${roundNum}: ${playerSelection} beats ${computerSelection}!`;
         case "lose":
-            return `Computer wins! ${computerSelection} beats ${playerSelection}`;
+            return `Round ${roundNum}: ${playerSelection} loses to ${computerSelection}!`;
     };
 };
 
 // produce string for end of the gameUntil5
 function getGameEnding() {
     if (currWinScore === 5) {
-        var result = "You managed to get to 5 points first! Winner!"
         playerBorder.classList.add("winningBorder")
         playerScore.classList.add("winningScore")
     } else if (currLoseScore === 5) {
-        var result = "No! Computer got to 5 points!"
         computerBorder.classList.add("winningBorder")
         computerScore.classList.add("winningScore")
     }
-    resultPrint(result, "#gameResult")
     makeRestartButton();
 };
 
+//variable creation
+const restartButton = document.createElement("button")
+const resultText = document.createElement("span")
+resultText.classList.add("resultText")
+const againText = document.createElement("span")
+againText.classList.add("againText")
+againText.textContent = "PLAY AGAIN"
+
 function makeRestartButton(){
-    restartButton.textContent = "AGAIN"
+    if (currWinScore === 5) {
+        resultText.textContent = "YOU WON"
+    } else if (currLoseScore === 5) {
+        resultText.textContent = "YOU LOSE"
+    }
+
     restartButton.classList.add("restartButton")
+    restartButton.appendChild(resultText)
+    restartButton.appendChild(againText)
     restartButton.addEventListener('click', restartGame);
     restart.appendChild(restartButton)
 }
-
 
 function playRound(playerSelection) {
     playerSelection = processInputPrompt(playerSelection);
@@ -110,6 +121,7 @@ function playRound(playerSelection) {
     const roundEnding = getRoundEnding(result, playerSelection, computerSelection);
     showWinner(result);
     resultPrint(roundEnding, "#roundResult");
+    roundNum ++
 };
 
 
@@ -167,9 +179,11 @@ function addFlashTransition(div, transition) {
 };
 
 function showWeaponChoice(playerSelection, computerSelection) {
-    currPlayerWeapon.src = `images/${playerSelection}.png`
-    currPlayerWeapon.classList.add("flip")
-    currComputerWeapon.src = `images/${computerSelection}.png`
+    playerChoiceCaption.textContent = `${playerSelection}`
+    playerChoiceImg.src = `images/${playerSelection}.png`
+    playerChoiceImg.classList.add("flip")
+    computerChoiceImg.src = `images/${computerSelection}.png`
+    computerChoiceCaption.textContent = `${computerSelection}`
     return
 };
 
@@ -204,15 +218,18 @@ function restartGame() {
         computerBorder.classList.remove("winningBorder")
         computerScore.classList.remove("winningScore")
         computerScore.classList.remove("winScore")
-        playerBorder.classList.remove("winner")
+        computerBorder.classList.remove("winner")
     }
-    currPlayerWeapon.src = ""
-    currComputerWeapon.src = ""
+    playerChoiceImg.src = ""
+    computerChoiceImg.src = ""
+    playerChoiceCaption.textContent = ""
+    computerChoiceCaption.textContent = ""
     currWinScore = 0
     currLoseScore = 0
+    roundNum = 1
     activateGameButtons()
+
     roundResult.textContent = "Are you ready?"
-    gameResult.textContent = ""
     showScore(currWinScore, currLoseScore)
 };
 
