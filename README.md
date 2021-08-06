@@ -1,2 +1,2 @@
-# odin_scissors_paper_rock
+# Mini-Project: Scissors Paper Rock
 Basic mini-game of scissors, paper, rock on the web. <a href="https://anthonydwan.github.io/odin_scissors_paper_rock/">live demo here</a>
