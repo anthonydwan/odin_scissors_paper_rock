@@ -210,15 +210,9 @@ activateGameButtons()
 function restartGame() {
     restart.removeChild(restartButton)
     if (currWinScore === 5){
-        playerBorder.classList.remove("winningBorder")
-        playerScore.classList.remove("winningScore")
-        playerScore.classList.remove("winScore")
-        playerBorder.classList.remove("winner")
+        removeWinner(playerBorder, playerScore)
     } else{
-        computerBorder.classList.remove("winningBorder")
-        computerScore.classList.remove("winningScore")
-        computerScore.classList.remove("winScore")
-        computerBorder.classList.remove("winner")
+        removeWinner(computerBorder, computerScore)
     }
     playerChoiceImg.src = ""
     computerChoiceImg.src = ""
@@ -232,6 +226,13 @@ function restartGame() {
     roundResult.textContent = "Are you ready?"
     showScore(currWinScore, currLoseScore)
 };
+
+function removeWinner(border, score){
+    border.classList.remove("winningBorder")
+    border.classList.remove("winner")
+    score.classList.remove("winningScore")
+    score.classList.remove("winScore")
+}
 
 
 
