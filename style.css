@@ -67,6 +67,12 @@ h1{
     transition: all 0.1s ease-in-out;
 }
 
+.buttonsImg:active{
+    margin-top: 3px;
+    margin-bottom: -3px;
+    transition: all 0.1s ease-in-out;
+}
+
 img{
     max-width: 200px;
     border-radius: 50%;
